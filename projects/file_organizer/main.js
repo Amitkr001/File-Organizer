@@ -1,14 +1,16 @@
 #!/usr/bin/env node
+
 // Get command-line arguments excluding "node" and the script file name
 let inputarr = process.argv.slice(2);
 // Extract the command from the arguments
 let command = inputarr[0];
 const { dir } = require("console");
+
 // Import required modules
 let fs = require("fs");
 let path = require("path");
 let helpobj = require("./module/help");
-let organizeobjobj = require("./module/organize");
+let organizeobj = require("./module/organize");
 let treeobj = require("./module/tree");
 
 // Define file types and their corresponding categories
@@ -23,25 +25,21 @@ let types = {
 // Process the command and execute corresponding functions
 switch (command) {
     case "organize":
-        organizeobjobj.organizeKey(inputarr[1]);
+        // Call the organizeKey function from the 'organize' module
+        organizeobj.organizeKey(inputarr[1]);
         break;
 
     case "tree":
-        treeobj.treekey(inputarr[1]);
+        // Call the treeKey function from the 'tree' module
+        treeobj.treeKey(inputarr[1]);
         break;
 
     case "help":
-        helpobj.helpkey();
+        // Call the helpKey function from the 'help' module
+        helpobj.helpKey();
         break;
 
     default:
         console.log("Please input a valid command");
         break;
 }
-
-
-
-
-
-
-
