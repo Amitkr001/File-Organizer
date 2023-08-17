@@ -1,10 +1,14 @@
 const fs = require('fs');
-const path = require("path");
+const path = require('path');
+
+// Categories and their associated file extensions
 let types = {
     media: ["mp4", "mkv"],
     archives: ['zip', '7z', 'rar', 'tar', 'gz', 'ar', 'iso', "xz"],
     documents: ['docx', 'doc', 'pdf', 'xlsx', 'xls', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'ps', 'tex'],
     app: ['exe', 'dmg', 'pkg', "deb"]
+};
+
 // Function to organize files in a directory
 function organizefn(dirPath) {
     if (dirPath === undefined) {
@@ -69,6 +73,6 @@ function sendFile(dirPath, desPath, category) {
     fs.unlinkSync(dirPath);
 }
 
-module.exports={
+module.exports = {
     organizeKey: organizefn
-}
+};
